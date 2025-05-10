@@ -1,12 +1,10 @@
-// app/layout.tsx
-
 import { ReactNode } from 'react';
 import { styled } from '@pigment-css/react';
 import Header from '@/components/Header';
-import '@/styles/global.css';
 import Footer from '@/components/Footer';
+import '@/styles/global.css';
 
-// ✅ next/font
+// Fonts
 import { Inter, Playfair_Display, Roboto_Mono } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -17,23 +15,25 @@ const playfair = Playfair_Display({
 });
 const mono = Roboto_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
+// Metadata
 export const metadata = {
-  title: 'Hillsdale Farm West',
-  description: 'A place to call home',
+  title: 'Nails By Fiona',
+  description: 'Creative nail designs and pampering by Fiona',
 };
 
+// Props
 interface RootLayoutProps {
   children: ReactNode;
 }
 
+// Styled Layout Container
 const AppContainer = styled.div(({ theme }) => ({
-  backgroundColor: '#F8F3EA',
-  borderRadius: theme.borderRadius.md,
-  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
-  maxWidth: '1024px',
-  width: '100%',
-  overflow: 'hidden',
+  backgroundColor: theme.colors.backgroundSecondary,
+  maxWidth: theme.widths.maxWidth,
   margin: '0 auto',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
 }));
 
 export default function RootLayout({ children }: RootLayoutProps) {
@@ -45,7 +45,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body>
         <AppContainer>
           <Header />
-          {children}
+          <main>{children}</main>
           <Footer />
         </AppContainer>
       </body>

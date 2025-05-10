@@ -20,8 +20,6 @@ body {
   font-size: 14px;
   margin: 0;
   overflow-x: hidden;
-  padding: 4em;
-  background-color: #415c49;
 }
 
 /* Media */
@@ -65,10 +63,4 @@ h6 {
 ul[role='list'],
 ol[role='list'] {
   list-style: none;
-}
-
-@media (max-width: 768px) {
-  body {
-    padding: 1em;
-  }
 }

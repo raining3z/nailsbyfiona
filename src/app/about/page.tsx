@@ -1,194 +1,75 @@
+'use client';
 import { styled } from '@pigment-css/react';
+import Image from 'next/image';
 
-const PageWrapper = styled.div(({ theme }) => ({
+const Container = styled.section(({ theme }) => ({
+  background: theme.colors.backgroundSecondary,
   padding: theme.spacing.lg,
-  backgroundColor: theme.colors.backgroundSecondary,
   display: 'flex',
   flexDirection: 'column',
-  gap: theme.spacing.lg,
-
-  [`@media ${theme.media.mobile}`]: {
-    padding: theme.spacing.md,
-    gap: theme.spacing.md,
-  },
-}));
-
-const Section = styled.section(({ theme }) => ({
-  backgroundColor: theme.colors.backgroundPrimary,
-  padding: theme.spacing.lg,
-  borderRadius: theme.borderRadius.lg,
-  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
-
-  [`@media ${theme.media.mobile}`]: {
-    padding: theme.spacing.md,
-  },
+  alignItems: 'center',
 }));
 
 const Heading = styled.h1(({ theme }) => ({
-  ...theme.typography.h2,
-  color: theme.colors.heading,
-  marginBottom: theme.spacing.md,
-
-  [`@media ${theme.media.mobile}`]: {
-    fontSize: theme.fontSizes.lg,
-    textAlign: 'center',
-  },
-}));
-
-const SubHeading = styled.h2(({ theme }) => ({
-  ...theme.typography.h3,
+  fontSize: theme.fontSizes.xxl,
   color: theme.colors.primary,
-  margin: `${theme.spacing.md} 0 ${theme.spacing.sm}`,
+  marginBottom: theme.spacing.md,
 }));
 
-const Paragraph = styled.p(({ theme }) => ({
-  ...theme.typography.p,
-  fontSize: theme.fontSizes.md,
-  lineHeight: 1.6,
+const Bio = styled.p(({ theme }) => ({
+  fontSize: theme.fontSizes.smd,
+  maxWidth: '600px',
+  margin: '0 auto',
   color: theme.colors.mutedText,
-
-  [`@media ${theme.media.mobile}`]: {
-    fontSize: theme.fontSizes.smd,
-  },
 }));
 
-const ImageWrapper = styled.div(({ theme }) => ({
-  height: '100px',
-  width: '100%',
-  overflow: 'hidden',
-  borderRadius: theme.borderRadius.md,
-  marginBottom: theme.spacing.md,
-
-  [`@media ${theme.media.mobile}`]: {
-    marginBottom: theme.spacing.sm,
-  },
+const FactsSection = styled.div(({ theme }) => ({
+  marginTop: theme.spacing.xl,
 }));
 
-const Image = styled.img(({ theme }) => ({
-  width: '100%',
-  maxWidth: '100%',
-  borderRadius: theme.borderRadius.md,
-  marginBottom: theme.spacing.md,
-
-  [`@media ${theme.media.mobile}`]: {
-    marginBottom: theme.spacing.sm,
-  },
+const FactsHeading = styled.h2(({ theme }) => ({
+  fontSize: theme.fontSizes.lg,
+  color: theme.colors.heading,
+  marginBottom: theme.spacing.sm,
 }));
 
-const GalleryGrid = styled.div(({ theme }) => ({
-  display: 'grid',
-  gridTemplateColumns: 'repeat(4, 1fr)',
-  gap: theme.spacing.md,
-  marginTop: theme.spacing.md,
-
-  [`@media ${theme.media.mobile}`]: {
-    gridTemplateColumns: 'repeat(2, 1fr)',
-    gap: theme.spacing.sm,
-  },
+const FactList = styled.ul(() => ({
+  listStyle: 'none',
+  padding: 0,
+  margin: 0,
 }));
 
-export default function About() {
+const FactItem = styled.li(({ theme }) => ({
+  fontSize: theme.fontSizes.smd,
+  color: theme.colors.text,
+  marginBottom: theme.spacing.sm,
+}));
+
+export default function AboutFiona() {
   return (
-    <PageWrapper>
-      <Section>
-        <Heading>About Hillsdale Farm West</Heading>
-        <ImageWrapper>
-          <Image
-            src="https://cdn.midjourney.com/341841f8-ed7d-4960-9b30-83d3a4e540c4/0_2.png"
-            alt="Neighborhood"
-          />
-        </ImageWrapper>
-        <Paragraph>
-          Welcome to Hillsdale Farm West, a peaceful and tight-knit community
-          established in the early 2000s. Nestled among rolling hills and
-          tree-lined streets, our neighborhood offers a charming blend of modern
-          amenities and natural beauty.
-        </Paragraph>
-      </Section>
+    <Container>
+      <Heading>About Fiona</Heading>
+      <Image
+        src="https://cdn.midjourney.com/a1ab4150-f278-40fb-8fe6-5e6676b7ebe3/0_2.png"
+        alt="Fiona"
+        width={150}
+        height={150}
+        style={{ borderRadius: '50%' }}
+      />
+      <Bio>
+        Hi, I’m Fiona! I love doing nails and creating new styles that make
+        people feel beautiful. Whether you want something classic or custom nail
+        art, I can’t wait to make your hands shine!
+      </Bio>
 
-      <Section>
-        <SubHeading>Our Mission</SubHeading>
-        <ImageWrapper>
-          <Image
-            src="https://cdn.midjourney.com/48f495e6-8520-47b7-b730-631a20d3f254/0_1.png"
-            alt="Community Playground"
-          />
-        </ImageWrapper>
-        <Paragraph>
-          At Hillsdale Farm West, we believe in fostering a safe, welcoming, and
-          inclusive environment for all residents. Whether you're raising a
-          family, retiring, or starting fresh — you're home here.
-        </Paragraph>
-      </Section>
-
-      <Section>
-        <SubHeading>Community Highlights</SubHeading>
-        <ImageWrapper>
-          <Image
-            src="https://cdn.midjourney.com/2aa11755-3d3c-4d49-a12c-e2ced02053c6/0_3.png"
-            alt="HOA Board Members"
-          />
-        </ImageWrapper>
-        <Paragraph>
-          Residents enjoy access to private walking trails, a central park and
-          playground, annual neighborhood events, and a community garden managed
-          by volunteers. We're proud of our friendly atmosphere and beautiful
-          scenery.
-        </Paragraph>
-      </Section>
-
-      <Section>
-        <SubHeading>Meet the HOA</SubHeading>
-        <ImageWrapper>
-          <Image
-            src="https://cdn.midjourney.com/2aa11755-3d3c-4d49-a12c-e2ced02053c6/0_1.png"
-            alt="HOA Board Members"
-          />
-        </ImageWrapper>
-        <Paragraph>
-          Our Homeowners Association is made up of dedicated residents who work
-          to ensure Hillsdale Farm West remains a safe and beautiful place to
-          live. Monthly meetings are open to all — come join us!
-        </Paragraph>
-      </Section>
-
-      <Section>
-        <SubHeading>Photo Gallery</SubHeading>
-        <GalleryGrid>
-          <Image
-            src="https://cdn.midjourney.com/7de39c44-312f-454e-9a2d-5dec83880ec9/0_0.png"
-            alt="Gallery 5"
-          />
-          <Image
-            src="https://cdn.midjourney.com/7de39c44-312f-454e-9a2d-5dec83880ec9/0_1.png"
-            alt="Gallery 6"
-          />
-          <Image
-            src="https://cdn.midjourney.com/7de39c44-312f-454e-9a2d-5dec83880ec9/0_3.png"
-            alt="Gallery 1"
-          />
-          <Image
-            src="https://cdn.midjourney.com/50cb3d02-8814-4ec2-b12b-4b1fc72dc956/0_3.png"
-            alt="Gallery 2"
-          />
-          <Image
-            src="https://cdn.midjourney.com/50cb3d02-8814-4ec2-b12b-4b1fc72dc956/0_0.png"
-            alt="Gallery 3"
-          />
-          <Image
-            src="https://cdn.midjourney.com/50cb3d02-8814-4ec2-b12b-4b1fc72dc956/0_1.png"
-            alt="Gallery 4"
-          />
-          <Image
-            src="https://cdn.midjourney.com/7de39c44-312f-454e-9a2d-5dec83880ec9/0_0.png"
-            alt="Gallery 5"
-          />
-          <Image
-            src="https://cdn.midjourney.com/7de39c44-312f-454e-9a2d-5dec83880ec9/0_1.png"
-            alt="Gallery 6"
-          />
-        </GalleryGrid>
-      </Section>
-    </PageWrapper>
+      <FactsSection>
+        <FactsHeading>Fun Facts About Fiona</FactsHeading>
+        <FactList>
+          <FactItem>I love playing volleyball!</FactItem>
+          <FactItem>My favorite player is Lexi Rodriguez.</FactItem>
+          <FactItem>I enjoy being creative with nail designs.</FactItem>
+        </FactList>
+      </FactsSection>
+    </Container>
   );
 }

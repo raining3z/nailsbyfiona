@@ -1,16 +1,8 @@
 import type { ExtendTheme } from '@pigment-css/react/theme';
 
-type ButtonOptions = {
-  background: string;
-  color: string;
-  hover: string;
-  border?: string;
-};
-
 declare module '@pigment-css/react/theme' {
   interface ThemeTokens {
     colors: {
-      // [key: string]: string // you could so this, but you lose intellisense
       primary: string;
       secondary: string;
       backgroundPrimary: string;
@@ -24,17 +16,18 @@ declare module '@pigment-css/react/theme' {
       white: string;
       error: string;
     };
-    button: {
-      primary: ButtonOptions;
-      secondary: ButtonOptions;
-      tertiary: ButtonOptions;
-      ghost: ButtonOptions;
-      blackLink: ButtonOptions;
-      alert: ButtonOptions;
-      success: ButtonOptions;
-      neutral: ButtonOptions;
-      disabled: ButtonOptions;
-    };
+    // Optional: Uncomment if you ever need button theme again
+    // button: {
+    //   primary: ButtonOptions;
+    //   secondary: ButtonOptions;
+    //   tertiary: ButtonOptions;
+    //   ghost: ButtonOptions;
+    //   blackLink: ButtonOptions;
+    //   alert: ButtonOptions;
+    //   success: ButtonOptions;
+    //   neutral: ButtonOptions;
+    //   disabled: ButtonOptions;
+    // };
     fontSizes: {
       xs: string;
       sm: string;
@@ -46,16 +39,24 @@ declare module '@pigment-css/react/theme' {
     };
     typography: {
       p: {
-        [key: string]: string;
+        margin: string;
+        padding: string;
+        fontSize?: string;
       };
       h1: {
-        [key: string]: string;
+        fontSize: string;
+        margin: string;
+        padding: string;
       };
       h2: {
-        [key: string]: string;
+        fontSize: string;
+        margin: string;
+        padding: string;
       };
       h3: {
-        [key: string]: string;
+        fontSize: string;
+        margin: string;
+        padding: string;
       };
     };
     spacing: {
